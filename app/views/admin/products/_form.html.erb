@@ -1,0 +1,100 @@
+<%= form_with(model: [:admin, product], class: "space-y-8 divide-y divide-gray-200") do |f| %>
+  <div class="space-y-8 divide-y divide-gray-200">
+    <div class="">
+      <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <div class="relative">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <%= f.text_field :name, class: "w-full rounded-md border border-gray-300 bg-gray-50 pl-10 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm", placeholder: "Enter product name", required: true %>
+            </div>
+            <% if product.errors[:name].any? %>
+              <p class="mt-2 text-sm text-red-600"><%= product.errors[:name].join(', ') %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= f.label :price, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <div class="relative">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm">$</span>
+              </div>
+              <%= f.number_field :price, step: '0.01', class: "w-full rounded-md border border-gray-300 bg-gray-50 pl-7 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm", placeholder: "0.00" %>
+            </div>
+            <% if product.errors[:price].any? %>
+              <p class="mt-2 text-sm text-red-600"><%= product.errors[:price].join(', ') %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= f.label :image_url, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <div class="relative">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <%= f.text_field :image_url, class: "w-full rounded-md border border-gray-300 bg-gray-50 pl-10 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm", placeholder: "Enter image URL" %>
+            </div>
+            <% if product.errors[:image_url].any? %>
+              <p class="mt-2 text-sm text-red-600"><%= product.errors[:image_url].join(', ') %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <%= f.label :description, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <div class="relative">
+              <div class="pointer-events-none absolute top-0 left-0 flex items-center pl-3 pt-2">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <%= f.text_area :description, rows: 4, class: "w-full rounded-md border border-gray-300 bg-gray-50 pl-10 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm", placeholder: "Enter product description" %>
+            </div>
+            <% if product.errors[:description].any? %>
+              <p class="mt-2 text-sm text-red-600"><%= product.errors[:description].join(', ') %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <div class="flex items-center justify-between">
+            <%= f.label :featured, class: "block text-sm font-medium text-gray-700" %>
+            <div class="mt-1">
+              <%= f.check_box :featured, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+            </div>
+          </div>
+          <p class="mt-1 text-sm text-gray-500">Feature this product on the homepage</p>
+        </div>
+
+        <div class="sm:col-span-4">
+          <div class="flex items-center justify-between">
+            <%= f.label :active, class: "block text-sm font-medium text-gray-700" %>
+            <div class="mt-1">
+              <%= f.check_box :active, class: "h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+            </div>
+          </div>
+          <p class="mt-1 text-sm text-gray-500">Make this product visible to customers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-5">
+    <div class="flex justify-end space-x-3">
+      <%= link_to 'Cancel', admin_products_path, class: "rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+      <%= f.submit class: "inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+    </div>
+  </div>
+<% end %> 

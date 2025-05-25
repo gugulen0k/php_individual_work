@@ -1,0 +1,50 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  .form-input {
+    @apply mt-1 block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  /* Kaminari Pagination Styles */
+  .pagination {
+    @apply flex items-center justify-center space-x-1;
+  }
+
+  .pagination span {
+    @apply inline-flex items-center;
+  }
+
+  .pagination span a {
+    @apply px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50;
+  }
+
+  .pagination .current {
+    @apply px-4 py-2 text-sm text-white bg-indigo-600 border border-indigo-600 rounded-md;
+  }
+
+  .pagination .gap {
+    @apply px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-md;
+  }
+
+  .pagination .prev a,
+  .pagination .next a {
+    @apply px-4 py-2 text-sm text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50;
+  }
+
+  .pagination .disabled {
+    @apply px-4 py-2 text-sm text-gray-400 bg-gray-100 border border-gray-300 rounded-md cursor-not-allowed;
+  }
+}
